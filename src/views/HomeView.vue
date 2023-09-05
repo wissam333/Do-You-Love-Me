@@ -1,0 +1,148 @@
+<template>
+  <div class="container">
+    <h1>Do You Love Me?</h1>
+  </div>
+  <div class="container btns-container">
+    <div class="buttons">
+      <button @mouseover="mouseover = !mouseover" @touchstart="mouseover = !mouseover" :style="mouseover ? {
+        position: 'absolute',
+        left: Math.random() * 60 + 'vw',
+        top: Math.random() * 60 + 'vh',
+      } : {
+        position: 'absolute',
+        left: Math.random() * 60 + 'vw',
+        top: Math.random() * 60 + 'vh',
+      }" class="no-btn">No</button>
+      <button @click="poupp = true">Yes</button>
+    </div>
+    <div @click="poupp = false" :style="poupp ? {
+      display: 'block',
+    } : {
+      display: 'none',
+    }" class="popup">
+      <p>Aww, thank you!</p>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue"
+
+let mouseover = ref(false)
+let poupp = ref(false)
+</script>
+
+<style>
+.btns-container {
+  position: relative;
+  height: calc(100vh - 200px);
+  width: 100vw;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.buttons {
+  margin: 20px;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.popup {
+  display: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+body {
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  margin: 0;
+  background-color: #f9f4f5;
+  /* Soft pastel color for the background */
+}
+
+.container {
+  padding: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #e91e63;
+  /* Romantic color for the heading */
+}
+
+.buttons {
+  margin: 20px;
+}
+
+button {
+  font-size: 20px;
+  padding: 12px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff4081;
+  /* Romantic color for the buttons */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff5c8d;
+  /* Lighter shade on hover for a soft effect */
+}
+
+.popup {
+  display: none;
+  background-color: #fff;
+  border: 1px solid #e91e63;
+  /* Romantic color for the border */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  color: #e91e63;
+  /* Romantic color for the popup text */
+}
+
+/* Add a smooth fade-in animation for the popup */
+.popup.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.no-btn {
+  position: relative;
+}
+</style>
