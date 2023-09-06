@@ -36,7 +36,6 @@ let poupp = ref(false)
 .btns-container {
   position: relative;
   height: calc(100vh - 200px);
-  width: 100vw;
 }
 
 h1 {

@@ -5,8 +5,19 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/Do-You-Love-Me/',
+  assetsDir: 'assets',
+  css: {
+    devSourcemap: true
+  },
   plugins: [
-    vue(),
+    vue({
+      template: {
+        transformAssetUrls: {
+          includeAbsolute: false
+        }
+      }
+    })
   ],
   resolve: {
     alias: {
